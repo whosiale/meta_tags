@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Meta tags básicos -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Información completa sobre qué son los meta tags y cómo utilizarlos para SEO y redes sociales">
+    <meta name="keywords" content="meta tags, SEO, HTML, Open Graph, Twitter Cards, posicionamiento web, etiquetas meta">
+    <meta name="author" content="Tu Nombre">
+    
+    <!-- Meta tags para indexación -->
+    <meta name="robots" content="index, follow">
+    
+    <!-- Meta tags para redes sociales (Open Graph) -->
+    <meta property="og:title" content="Guía completa sobre Meta Tags">
+    <meta property="og:description" content="Todo lo que necesitas saber sobre meta tags y su importancia en el desarrollo web">
+    <meta property="og:image" content="https://ejemplo.com/imagen-meta-tags.jpg">
+    <meta property="og:url" content="https://ejemplo.com/meta-tags">
+    <meta property="og:type" content="website">
+    
+    <!-- Meta tags para Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Guía completa sobre Meta Tags">
+    <meta name="twitter:description" content="Todo l:o que necesitas saber sobre meta tags y su importancia en el desarrollo web">
+    <meta name="twitter:image" content="https://ejemplo.com/imagen-meta-tags.jpg">
+    
+    <title>Meta Tags - Información Completa</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+        }
+        
+        header {
+            background-color: #0288d1;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .corner-image {
+            position: absolute;
+            width: 80px;
+            height: auto;
+        }
+        
+        .top-left {
+            top: 10px;
+            left: 10px;
+        }
+        
+        .top-right {
+            top: 10px;
+            right: 10px;
+        }
+        
+        .bottom-left {
+            bottom: 10px;
+            left: 10px;
+        }
+        
+        .bottom-right {
+            bottom: 10px;
+            right: 10px;
+        }
+        
+        h1 {
+            margin: 0;
+            font-size: 2.2em;
+        }
+        
+        h2 {
+            color: #01579b;
+            border-bottom: 2px solid #81d4fa;
+            padding-bottom: 5px;
+        }
+        
+        .content-section {
+            background-color: white;
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        
+        .blue-box {
+            background-color: #b3e5fc;
+            padding: 15px;
+            border-left: 5px solid #0288d1;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .pink-box {
+            background-color: #e1f5fe;
+            padding: 15px;
+            border-left: 5px solid #0288d1;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .dark-pink {
+            background-color: #b5d0dd;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #0288d1;
+            color: white;
+            border-radius: 15px 15px 0 0;
+            margin-top: 30px;
+            position: relative;
+        }
+        
+        .tag-example {
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-x: auto;
+        }
+
+        .corner-bubble {
+            position: absolute;
+            width: 300px;
+            height: auto;
+            opacity: 0.8;
+            z-index: 0;
+        }
+
+        .bottom-left {
+            bottom: 0;
+            left: 0;
+        }
+
+        .bottom-right {
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="C:\Users\Admin\Downloads\planta 1.png" alt="Icono HTML" class="corner-image top-left">
+        <img src="C:\Users\Admin\Downloads\planta 2.png" alt="Icono SEO" class="corner-image top-right">
+        <div class="container">
+            <h1>Meta Tags - Información Completa</h1>
+            <p>Todo lo que necesitas saber sobre etiquetas meta</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <section class="content-section">
+            <h2>¿Qué son los Meta Tags?</h2>
+            <p>Los meta tags (o etiquetas meta) son elementos HTML que proporcionan información sobre una página web, como su descripción, palabras clave, autor y configuraciones de visualización. Se usan principalmente para mejorar el SEO (posicionamiento en buscadores) y la experiencia del usuario.</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/3602/3602123.png" alt="Icono de meta tags" style="width: 100px; display: block; margin: 15px auto;">
+
+            <div class="pink-box">
+                <p>Se colocan en la sección <code>&lt;head&gt;</code> del código HTML y se escriben así:</p>
+                <div class="tag-example">
+                    &lt;meta name="description" content="Breve descripción del contenido de la página"&gt;<br>
+                    &lt;meta name="keywords" content="palabras clave, relacionadas, con, el, contenido"&gt;<br>
+                    &lt;meta name="author" content="Nombre del autor"&gt;<br>
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>¿Para qué se usan los Meta Tags?</h2>
+            <p>Los Meta Tags se utilizan para:</p>
+            <img src="https://cdn-icons-png.flaticon.com/512/4000/4000043.png" alt="Uso de Meta Tags" style="width:100px; display:block; margin:15px auto;">
+            <ul>
+                <li>Describir el contenido de la página</li>
+                <li>Optimizar su visibilidad en buscadores</li>
+                <li>Definir palabras claves relevantes</li>
+                <li>Establecer el autor del sitio</li>
+                <li>Controlar la compatibilidad con dispositivos móviles</li>
+                <li>Configurar otras preferencias de la página</li>
+            </ul>
+        </section>
+        
+        <section class="content-section">
+            <h2>Propósitos de los Meta Tags</h2>
+            <div class="pink-box">
+                <h3>SEO (Optimización para motores de búsqueda)</h3>
+                <p>Mejoran la visibilidad de una página en Google y otros buscadores.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/10717/10717987.png" alt="SEO Icon" style="width:100px; display:block; margin:15px auto;">
+
+                <h3>Control de la apariencia en redes sociales</h3>
+                <p>Definen cómo se muestra un enlace cuando se comparte en redes como Facebook y Twitter.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/2175/2175193.png" alt="Redes Sociales Icon" style="width:100px; display:block; margin:15px auto;">
+
+                <h3>Compatibilidad con dispositivos móviles</h3>
+                <p>Permiten que la página se adapte mejor a diferentes tamaños de pantalla.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/9503/9503695.png" alt="Responsive Icon" style="width:100px; display:block; margin:15px auto;">
+
+                <h3>Seguridad y privacidad</h3>
+                <p>Controlan el acceso y comportamiento de algunos elementos, como el almacenamiento caché.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Seguridad Icon" style="width:100px; display:block; margin:15px auto;">
+
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <h2>Usos de los Meta Tags</h2>
+            
+            <h3>1. Meta tags para SEO</h3>
+            <div class="dark-pink">
+                <p>Ayudan a los motores de búsqueda a entender el contenido de la página.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/4149/4149624.png" alt="SEO Meta Icon" style="width:100px; display:block; margin:15px auto;">
+            </div>
+            <p>Ejemplos importantes:</p>
+            <ul>
+                <li><code>&lt;meta name="description" content="..."&gt;</code> - Descripción que aparece en los resultados de búsqueda</li>
+                <li><code>&lt;meta name="keywords" content="..."&gt;</code> - Palabras clave relevantes (aunque hoy menos importante)</li>
+                <li><code>&lt;meta name="robots" content="index, follow"&gt;</code> - Instrucciones para los bots de búsqueda</li>
+            </ul>
+            
+            <h3>2. Meta Tags para redes sociales</h3>
+            <div class="dark-pink">
+                <p>Controlan cómo se muestra la página en plataformas sociales (Open Graph para Facebook/LinkedIn y Twitter Cards para Twitter).</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="Open Graph Icon" style="width:100px; display:block; margin:15px auto;">
+            </div>
+            <p>Ejemplos clave:</p>
+            <ul>
+                <li><code>&lt;meta property="og:title" content="..."&gt;</code> - Título para compartir en redes</li>
+                <li><code>&lt;meta property="og:image" content="..."&gt;</code> - Imagen destacada</li>
+                <li><code>&lt;meta name="twitter:card" content="..."&gt;</code> - Tipo de tarjeta para Twitter</li>
+            </ul>
+            
+            <h3>3. Meta Tags para Seguridad</h3>
+            <div class="dark-pink">
+                <p>Definen aspectos de la seguridad, como la política de contenido y la compatibilidad con navegadores antiguos.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/564/564619.png" alt="Security Meta Tag Icon" style="width:100px; display:block; margin:15px auto;">
+            </div>
+            <p>Ejemplos importantes:</p>
+            <ul>
+                <li><code>&lt;meta http-equiv="Content-Security-Policy" content="..."&gt;</code> - Política de seguridad de contenido</li>
+                <li><code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</code> - Compatibilidad con Internet Explorer</li>
+            </ul>
+        </section>
+        
+        <section class="content-section">
+            <h2>Preguntas de Reflexión</h2>
+            <div class="pink-box">
+                <h3>1. ¿Por qué es importante incluir el meta tag <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>?</h3>
+                <p>Esta meta tag es crucial para el diseño responsivo, ya que ajusta la escala y el ancho de la página en dispositivos móviles. Sin él, la página podría no adaptarse correctamente a las pantallas pequeñas y se mostraria un diseño algo deforme y feo.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942634.png" alt="Viewport Icon" style="width:100px; display:block; margin:15px auto;">
+
+                <h3>2. ¿Cómo ayudan los meta tags a mejorar el posicionamiento en Google?</h3>
+                <p>Los meta tags, sobre todo el "meta description, title,, robots y keywords", ayudan a google a entender el contenido de la página.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/10725/10725895.png" alt="Google SEO Icon" style="width:100px; display:block; margin:15px auto;">
+
+                <h3>3. ¿Qué sucede si no se incluye una meta tag description en la página?</h3>
+                <p>Si no se especifica un "meta description", google generará automáticamnete un fragmento basado en el contenido de la página.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Fragmento generado" style="width:100px; display:block; margin:15px auto;">
+
+                <h3>4. ¿Cómo los meta tags Open Graph mejoran la forma en que se comparte una página en Facebook?</h3>
+                <p>Los meta tags de Open Graph (og::title, og::description, og::image, og::url) ayudan a Facebook a entender el contenido de la página y mostrarlo de manera atractiva cuando se comparte en la red social.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook Open Graph" style="width:100px; display:block; margin:15px auto;">
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Tarea de Investigación</p>
+        </div>
+        <div class="bubble bottom-left"></div>
+        <div class="bubble bottom-right"></div>
+        <img src="C:\Users\Admin\Downloads\burbujas2.png" alt="Burbuja izquierda" class="corner-bubble bottom-left">
+        <img src="C:\Users\Admin\Downloads\burbujas2.png" alt="Burbuja derecha" class="corner-bubble bottom-right">
+
+    </footer>    
+</body>
+</html>
