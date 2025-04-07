@@ -21,7 +21,7 @@
     <!-- Meta tags para Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Guía completa sobre Meta Tags">
-    <meta name="twitter:description" content="Todo l:o que necesitas saber sobre meta tags y su importancia en el desarrollo web">
+    <meta name="twitter:description" content="Todo lo que necesitas saber sobre meta tags y su importancia en el desarrollo web">
     <meta name="twitter:image" content="https://ejemplo.com/imagen-meta-tags.jpg">
     
     <title>Meta Tags - Información Completa</title>
@@ -57,31 +57,25 @@
             position: absolute;
             width: 80px;
             height: auto;
+            transition: all 0.5s ease;
         }
         
         .top-left {
             top: 10px;
             left: 10px;
+            animation: float 3s ease-in-out infinite;
         }
         
         .top-right {
             top: 10px;
             right: 10px;
-        }
-        
-        .bottom-left {
-            bottom: 10px;
-            left: 10px;
-        }
-        
-        .bottom-right {
-            bottom: 10px;
-            right: 10px;
+            animation: float 4s ease-in-out infinite 0.5s;
         }
         
         h1 {
             margin: 0;
             font-size: 2.2em;
+            animation: fadeIn 1.5s ease-out;
         }
         
         h2 {
@@ -96,6 +90,12 @@
             margin: 20px 0;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
         .blue-box {
@@ -112,6 +112,7 @@
             border-left: 5px solid #0288d1;
             margin: 15px 0;
             border-radius: 0 8px 8px 0;
+            animation: pulse 2s infinite;
         }
         
         .dark-pink {
@@ -119,6 +120,12 @@
             padding: 10px;
             border-radius: 5px;
             margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-pink:hover {
+            background-color: #9bb9c8;
+            transform: scale(1.02);
         }
         
         footer {
@@ -129,6 +136,7 @@
             border-radius: 15px 15px 0 0;
             margin-top: 30px;
             position: relative;
+            overflow: hidden;
         }
         
         .tag-example {
@@ -145,34 +153,120 @@
             height: auto;
             opacity: 0.8;
             z-index: 0;
+            animation: float 6s ease-in-out infinite;
         }
 
         .bottom-left {
-            bottom: 0;
-            left: 0;
+            bottom: -50px;
+            left: -50px;
+            animation-delay: 0s;
         }
 
         .bottom-right {
+            bottom: -50px;
+            right: -50px;
+            animation-delay: 1s;
+        }
+
+        /* Animaciones */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(2, 136, 209, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(2, 136, 209, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(2, 136, 209, 0);
+            }
+        }
+
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Animación para las imágenes de contenido */
+        .content-img {
+            transition: all 0.5s ease;
+        }
+
+        .content-img:hover {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Efecto de olas en el footer */
+        .wave {
+            position: absolute;
+            width: 100%;
+            height: 100px;
             bottom: 0;
-            right: 0;
+            left: 0;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" fill="rgba(255,255,255,0.1)" opacity=".25"/><path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" fill="rgba(255,255,255,0.1)" opacity=".5"/><path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+            animation: wave 10s linear infinite;
+        }
+
+        @keyframes wave {
+            0% {
+                background-position-x: 0;
+            }
+            100% {
+                background-position-x: 1200px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <img src="imagenes\planta 1.png" alt="Icono HTML" class="corner-image top-left">
-        <img src="imagenes\planta 2.png" alt="Icono SEO" class="corner-image top-right">
+        <img src="imagenes/planta 1.png" alt="Icono HTML" class="corner-image top-left bounce">
+        <img src="imagenes/planta 2.png" alt="Icono SEO" class="corner-image top-right bounce">
         <div class="container">
             <h1>Meta Tags - Información Completa</h1>
             <p>Todo lo que necesitas saber sobre etiquetas meta</p>
         </div>
+        <div class="wave"></div>
     </header>
     
     <div class="container">
         <section class="content-section">
             <h2>¿Qué son los Meta Tags?</h2>
             <p>Los meta tags (o etiquetas meta) son elementos HTML que proporcionan información sobre una página web, como su descripción, palabras clave, autor y configuraciones de visualización. Se usan principalmente para mejorar el SEO (posicionamiento en buscadores) y la experiencia del usuario.</p>
-            <img src="https://cdn-icons-png.flaticon.com/512/3602/3602123.png" alt="Icono de meta tags" style="width: 100px; display: block; margin: 15px auto;">
+            <img src="https://cdn-icons-png.flaticon.com/512/3602/3602123.png" alt="Icono de meta tags" class="content-img" style="width: 100px; display: block; margin: 15px auto;">
 
             <div class="pink-box">
                 <p>Se colocan en la sección <code>&lt;head&gt;</code> del código HTML y se escriben así:</p>
@@ -188,7 +282,7 @@
         <section class="content-section">
             <h2>¿Para qué se usan los Meta Tags?</h2>
             <p>Los Meta Tags se utilizan para:</p>
-            <img src="https://cdn-icons-png.flaticon.com/512/4000/4000043.png" alt="Uso de Meta Tags" style="width:100px; display:block; margin:15px auto;">
+            <img src="https://cdn-icons-png.flaticon.com/512/4000/4000043.png" alt="Uso de Meta Tags" class="content-img" style="width:100px; display:block; margin:15px auto;">
             <ul>
                 <li>Describir el contenido de la página</li>
                 <li>Optimizar su visibilidad en buscadores</li>
@@ -204,19 +298,19 @@
             <div class="pink-box">
                 <h3>SEO (Optimización para motores de búsqueda)</h3>
                 <p>Mejoran la visibilidad de una página en Google y otros buscadores.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/10717/10717987.png" alt="SEO Icon" style="width:100px; display:block; margin:15px auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/10717/10717987.png" alt="SEO Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
 
                 <h3>Control de la apariencia en redes sociales</h3>
                 <p>Definen cómo se muestra un enlace cuando se comparte en redes como Facebook y Twitter.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/2175/2175193.png" alt="Redes Sociales Icon" style="width:100px; display:block; margin:15px auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2175/2175193.png" alt="Redes Sociales Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
 
                 <h3>Compatibilidad con dispositivos móviles</h3>
                 <p>Permiten que la página se adapte mejor a diferentes tamaños de pantalla.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/9503/9503695.png" alt="Responsive Icon" style="width:100px; display:block; margin:15px auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/9503/9503695.png" alt="Responsive Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
 
                 <h3>Seguridad y privacidad</h3>
                 <p>Controlan el acceso y comportamiento de algunos elementos, como el almacenamiento caché.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Seguridad Icon" style="width:100px; display:block; margin:15px auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Seguridad Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
 
             </div>
         </section>
@@ -227,7 +321,7 @@
             <h3>1. Meta tags para SEO</h3>
             <div class="dark-pink">
                 <p>Ayudan a los motores de búsqueda a entender el contenido de la página.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/4149/4149624.png" alt="SEO Meta Icon" style="width:100px; display:block; margin:15px auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/4149/4149624.png" alt="SEO Meta Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
             </div>
             <p>Ejemplos importantes:</p>
             <ul>
@@ -239,7 +333,7 @@
             <h3>2. Meta Tags para redes sociales</h3>
             <div class="dark-pink">
                 <p>Controlan cómo se muestra la página en plataformas sociales (Open Graph para Facebook/LinkedIn y Twitter Cards para Twitter).</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="Open Graph Icon" style="width:100px; display:block; margin:15px auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="Open Graph Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
             </div>
             <p>Ejemplos clave:</p>
             <ul>
@@ -251,7 +345,7 @@
             <h3>3. Meta Tags para Seguridad</h3>
             <div class="dark-pink">
                 <p>Definen aspectos de la seguridad, como la política de contenido y la compatibilidad con navegadores antiguos.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/564/564619.png" alt="Security Meta Tag Icon" style="width:100px; display:block; margin:15px auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/564/564619.png" alt="Security Meta Tag Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
             </div>
             <p>Ejemplos importantes:</p>
             <ul>
@@ -265,19 +359,19 @@
             <div class="pink-box">
                 <h3>1. ¿Por qué es importante incluir el meta tag <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>?</h3>
                 <p>Esta meta tag es crucial para el diseño responsivo, ya que ajusta la escala y el ancho de la página en dispositivos móviles. Sin él, la página podría no adaptarse correctamente a las pantallas pequeñas y se mostraria un diseño algo deforme y feo.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942634.png" alt="Viewport Icon" style="width:100px; display:block; margin:15px auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/2942/2942634.png" alt="Viewport Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
 
                 <h3>2. ¿Cómo ayudan los meta tags a mejorar el posicionamiento en Google?</h3>
-                <p>Los meta tags, sobre todo el "meta description, title,, robots y keywords", ayudan a google a entender el contenido de la página.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/10725/10725895.png" alt="Google SEO Icon" style="width:100px; display:block; margin:15px auto;">
+                <p>Los meta tags, sobre todo el "meta description, title, robots y keywords", ayudan a google a entender el contenido de la página.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/10725/10725895.png" alt="Google SEO Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
 
                 <h3>3. ¿Qué sucede si no se incluye una meta tag description en la página?</h3>
-                <p>Si no se especifica un "meta description", google generará automáticamnete un fragmento basado en el contenido de la página.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Fragmento generado" style="width:100px; display:block; margin:15px auto;">
+                <p>Si no se especifica un "meta description", google generará automáticamente un fragmento basado en el contenido de la página.</p>
+                <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Fragmento generado" class="content-img" style="width:100px; display:block; margin:15px auto;">
 
                 <h3>4. ¿Cómo los meta tags Open Graph mejoran la forma en que se comparte una página en Facebook?</h3>
                 <p>Los meta tags de Open Graph (og::title, og::description, og::image, og::url) ayudan a Facebook a entender el contenido de la página y mostrarlo de manera atractiva cuando se comparte en la red social.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook Open Graph" style="width:100px; display:block; margin:15px auto;">
+                <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook Open Graph" class="content-img" style="width:100px; display:block; margin:15px auto;">
             </div>
         </section>
     </div>
@@ -286,11 +380,9 @@
         <div class="container">
             <p>Tarea de Investigación</p>
         </div>
-        <div class="bubble bottom-left"></div>
-        <div class="bubble bottom-right"></div>
-        <img src="imagenes\burbujas2.png" alt="Burbuja izquierda" class="corner-bubble bottom-left">
-        <img src="imagenes\burbujas2.png" alt="Burbuja derecha" class="corner-bubble bottom-right">
-
+        <img src="imagenes/burbujas2.png" alt="Burbuja izquierda" class="corner-bubble bottom-left">
+        <img src="imagenes/burbujas2.png" alt="Burbuja derecha" class="corner-bubble bottom-right">
+        <div class="wave"></div>
     </footer>    
 </body>
 </html>
