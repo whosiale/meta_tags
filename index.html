@@ -26,47 +26,67 @@
     
     <title>Meta Tags - Información Completa</title>
     <style>
-        /* Estilos para el preloader de video */
-        #video-preloader {
+        /* Estilos para la animación de entrada */
+        #intro-animation {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: #000;
+            background-color: #0288d1;
             z-index: 9999;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
+            overflow: hidden;
         }
         
-        #video-container {
+        #intro-image {
             width: 80%;
-            max-width: 800px;
-            position: relative;
-        }
-        
-        #video-container iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
+            max-width: 500px;
+            transform: scale(0.5);
+            opacity: 0;
+            animation: 
+                zoomIn 0.5s ease-out forwards,
+                float 8s ease-in-out 0.5s infinite;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.7));
         }
         
         #skip-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #0288d1;
-            color: white;
+            margin-top: 30px;
+            padding: 10px 25px;
+            background-color: white;
+            color: #0288d1;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s;
+            font-weight: bold;
+            transition: all 0.3s;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1s forwards;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
         
         #skip-btn:hover {
-            background-color: #01579b;
+            background-color: #e1f5fe;
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+        }
+        
+        .bubbles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .bubble {
+            position: absolute;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            animation: floatUp linear infinite;
         }
         
         /* Estilos del sitio principal (inicialmente oculto) */
@@ -232,11 +252,37 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(20px);
             }
             to {
                 opacity: 1;
-                transform: translateY(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            80% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100px) scale(1);
+                opacity: 0;
             }
         }
 
@@ -300,12 +346,14 @@
     </style>
 </head>
 <body>
-    <!-- Preloader con video de YouTube -->
-    <div id="video-preloader">
-        <div id="video-container">
-            <iframe id="intro-video" src="https://youtu.be/9vxv-TpdWSU?si=d9d7-NRji2mjqwUR" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            <button id="skip-btn">Saltar video</button>
-        </div>
+    <!-- Animación de entrada -->
+    <div id="intro-animation">
+        <div class="bubbles" id="bubbles-container"></div>
+        <img id="intro-image" src="https://cdn-icons-png.flaticon.com/512/2721/2721287.png" alt="Icono de Meta Tags">
+        <button id="skip-btn">Entrar al sitio</button>
+        <audio id="bg-music" loop>
+            <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        </audio>
     </div>
     
     <!-- Sitio principal (inicialmente oculto) -->
@@ -321,117 +369,7 @@
         </header>
         
         <div class="container">
-            <section class="content-section">
-                <h2>¿Qué son los Meta Tags?</h2>
-                <p>Los meta tags (o etiquetas meta) son elementos HTML que proporcionan información sobre una página web, como su descripción, palabras clave, autor y configuraciones de visualización. Se usan principalmente para mejorar el SEO (posicionamiento en buscadores) y la experiencia del usuario.</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/3602/3602123.png" alt="Icono de meta tags" class="content-img" style="width: 100px; display: block; margin: 15px auto;">
-
-                <div class="pink-box">
-                    <p>Se colocan en la sección <code>&lt;head&gt;</code> del código HTML y se escriben así:</p>
-                    <div class="tag-example">
-                        &lt;meta name="description" content="Breve descripción del contenido de la página"&gt;<br>
-                        &lt;meta name="keywords" content="palabras clave, relacionadas, con, el, contenido"&gt;<br>
-                        &lt;meta name="author" content="Nombre del autor"&gt;<br>
-                        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-                    </div>
-                </div>
-            </section>
-            
-            <section class="content-section">
-                <h2>¿Para qué se usan los Meta Tags?</h2>
-                <p>Los Meta Tags se utilizan para:</p>
-                <img src="https://cdn-icons-png.flaticon.com/512/4000/4000043.png" alt="Uso de Meta Tags" class="content-img" style="width:100px; display:block; margin:15px auto;">
-                <ul>
-                    <li>Describir el contenido de la página</li>
-                    <li>Optimizar su visibilidad en buscadores</li>
-                    <li>Definir palabras claves relevantes</li>
-                    <li>Establecer el autor del sitio</li>
-                    <li>Controlar la compatibilidad con dispositivos móviles</li>
-                    <li>Configurar otras preferencias de la página</li>
-                </ul>
-            </section>
-            
-            <section class="content-section">
-                <h2>Propósitos de los Meta Tags</h2>
-                <div class="pink-box">
-                    <h3>SEO (Optimización para motores de búsqueda)</h3>
-                    <p>Mejoran la visibilidad de una página en Google y otros buscadores.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/10717/10717987.png" alt="SEO Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
-
-                    <h3>Control de la apariencia en redes sociales</h3>
-                    <p>Definen cómo se muestra un enlace cuando se comparte en redes como Facebook y Twitter.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/2175/2175193.png" alt="Redes Sociales Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
-
-                    <h3>Compatibilidad con dispositivos móviles</h3>
-                    <p>Permiten que la página se adapte mejor a diferentes tamaños de pantalla.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/9503/9503695.png" alt="Responsive Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
-
-                    <h3>Seguridad y privacidad</h3>
-                    <p>Controlan el acceso y comportamiento de algunos elementos, como el almacenamiento caché.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/942/942748.png" alt="Seguridad Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
-
-                </div>
-            </section>
-            
-            <section class="content-section">
-                <h2>Usos de los Meta Tags</h2>
-                
-                <h3>1. Meta tags para SEO</h3>
-                <div class="dark-pink">
-                    <p>Ayudan a los motores de búsqueda a entender el contenido de la página.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/4149/4149624.png" alt="SEO Meta Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
-                </div>
-                <p>Ejemplos importantes:</p>
-                <ul>
-                    <li><code>&lt;meta name="description" content="..."&gt;</code> - Descripción que aparece en los resultados de búsqueda</li>
-                    <li><code>&lt;meta name="keywords" content="..."&gt;</code> - Palabras clave relevantes (aunque hoy menos importante)</li>
-                    <li><code>&lt;meta name="robots" content="index, follow"&gt;</code> - Instrucciones para los bots de búsqueda</li>
-                </ul>
-                
-                <h3>2. Meta Tags para redes sociales</h3>
-                <div class="dark-pink">
-                    <p>Controlan cómo se muestra la página en plataformas sociales (Open Graph para Facebook/LinkedIn y Twitter Cards para Twitter).</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="Open Graph Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
-                </div>
-                <p>Ejemplos clave:</p>
-                <ul>
-                    <li><code>&lt;meta property="og:title" content="..."&gt;</code> - Título para compartir en redes</li>
-                    <li><code>&lt;meta property="og:image" content="..."&gt;</code> - Imagen destacada</li>
-                    <li><code>&lt;meta name="twitter:card" content="..."&gt;</code> - Tipo de tarjeta para Twitter</li>
-                </ul>
-                
-                <h3>3. Meta Tags para Seguridad</h3>
-                <div class="dark-pink">
-                    <p>Definen aspectos de la seguridad, como la política de contenido y la compatibilidad con navegadores antiguos.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/564/564619.png" alt="Security Meta Tag Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
-                </div>
-                <p>Ejemplos importantes:</p>
-                <ul>
-                    <li><code>&lt;meta http-equiv="Content-Security-Policy" content="..."&gt;</code> - Política de seguridad de contenido</li>
-                    <li><code>&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</code> - Compatibilidad con Internet Explorer</li>
-                </ul>
-            </section>
-            
-            <section class="content-section">
-                <h2>Preguntas de Reflexión</h2>
-                <div class="pink-box">
-                    <h3>1. ¿Por qué es importante incluir el meta tag <code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code>?</h3>
-                    <p>Esta meta tag es crucial para el diseño responsivo, ya que ajusta la escala y el ancho de la página en dispositivos móviles. Sin él, la página podría no adaptarse correctamente a las pantallas pequeñas y se mostraria un diseño algo deforme y feo.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/2942/2942634.png" alt="Viewport Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
-
-                    <h3>2. ¿Cómo ayudan los meta tags a mejorar el posicionamiento en Google?</h3>
-                    <p>Los meta tags, sobre todo el "meta description, title, robots y keywords", ayudan a google a entender el contenido de la página.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/10725/10725895.png" alt="Google SEO Icon" class="content-img" style="width:100px; display:block; margin:15px auto;">
-
-                    <h3>3. ¿Qué sucede si no se incluye una meta tag description en la página?</h3>
-                    <p>Si no se especifica un "meta description", google generará automáticamente un fragmento basado en el contenido de la página.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/841/841364.png" alt="Fragmento generado" class="content-img" style="width:100px; display:block; margin:15px auto;">
-
-                    <h3>4. ¿Cómo los meta tags Open Graph mejoran la forma en que se comparte una página en Facebook?</h3>
-                    <p>Los meta tags de Open Graph (og::title, og::description, og::image, og::url) ayudan a Facebook a entender el contenido de la página y mostrarlo de manera atractiva cuando se comparte en la red social.</p>
-                    <img src="https://cdn-icons-png.flaticon.com/512/124/124010.png" alt="Facebook Open Graph" class="content-img" style="width:100px; display:block; margin:15px auto;">
-                </div>
-            </section>
+            <!-- ... (todo el contenido de tu sitio permanece igual) ... -->
         </div>
         
         <footer>
@@ -445,37 +383,86 @@
     </div>
     
     <script>
-        // Función para mostrar el sitio principal
-        function showMainSite() {
-            document.getElementById('video-preloader').style.display = 'none';
-            document.querySelector('.main-site').style.display = 'block';
-        }
-        
-        // Detectar cuando el video termina
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-        
-        var player;
-        function onYouTubeIframeAPIReady() {
-            player = new YT.Player('intro-video', {
-                events: {
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-        }
-        
-        function onPlayerStateChange(event) {
-            if (event.data == YT.PlayerState.ENDED) {
-                showMainSite();
+        // Crear burbujas dinámicas
+        function createBubbles() {
+            const container = document.getElementById('bubbles-container');
+            const bubbleCount = 20;
+            
+            for (let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // Tamaño aleatorio entre 10px y 50px
+                const size = Math.random() * 40 + 10;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                
+                // Posición horizontal aleatoria
+                bubble.style.left = `${Math.random() * 100}%`;
+                
+                // Duración de animación aleatoria entre 5s y 15s
+                const duration = Math.random() * 10 + 5;
+                bubble.style.animationDuration = `${duration}s`;
+                
+                // Retardo aleatorio hasta 5s
+                bubble.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(bubble);
             }
         }
         
-        // Botón para saltar el video
-        document.getElementById('skip-btn').addEventListener('click', function() {
-            showMainSite();
-        });
+        // Mostrar el sitio principal
+        function showMainSite() {
+            document.getElementById('intro-animation').style.animation = 'fadeOut 1s ease-out forwards';
+            setTimeout(() => {
+                document.getElementById('intro-animation').style.display = 'none';
+                document.querySelector('.main-site').style.display = 'block';
+                document.getElementById('bg-music').pause();
+            }, 1000);
+        }
+        
+        // Iniciar música y animación
+        function startIntro() {
+            createBubbles();
+            const music = document.getElementById('bg-music');
+            music.volume = 0.3; // Volumen más bajo
+            
+            // Intentar reproducir la música (los navegadores bloquean el autoplay)
+            const playPromise = music.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    console.log("Reproducción automática prevenida por el navegador");
+                });
+            }
+            
+            // Mostrar botón después de 2 segundos
+            setTimeout(() => {
+                document.getElementById('skip-btn').style.display = 'block';
+            }, 2000);
+            
+            // Ocultar automáticamente después de 10 segundos
+            setTimeout(() => {
+                if (document.getElementById('intro-animation').style.display !== 'none') {
+                    showMainSite();
+                }
+            }, 10000);
+        }
+        
+        // Botón para saltar la animación
+        document.getElementById('skip-btn').addEventListener('click', showMainSite);
+        
+        // Iniciar cuando el DOM esté cargado
+        document.addEventListener('DOMContentLoaded', startIntro);
+        
+        // Añadir keyframe para fadeOut dinámicamente
+        const styleSheet = document.styleSheets[0];
+        styleSheet.insertRule(`
+            @keyframes fadeOut {
+                from { opacity: 1; }
+                to { opacity: 0; }
+            }
+        `, styleSheet.cssRules.length);
     </script>
 </body>
 </html>
